@@ -1,19 +1,18 @@
 import java.util.Scanner;
 
-
 public class PalindromeCheckerApp {
 
-            public static boolean isPalindrome(String str, int start, int end) {
 
-                // Base condition
-                if (start >= end) {
-                    return true;
-                }
+                Scanner sc = new Scanner(System.in);
 
-                // If characters don't match
-                if (str.charAt(start) != str.charAt(end)) {
-                    return false;
-                }
+                System.out.print("Enter a string: ");
+                String input = sc.nextLine();
+
+                // Convert to lowercase and remove spaces
+                input = input.toLowerCase().replaceAll("\\s+", "");
+
+                int start = 0;
+                int end = input.length() - 1;
 
                 // Recursive call
                 return isPalindrome(str, start + 1, end - 1);
@@ -21,15 +20,17 @@ public class PalindromeCheckerApp {
 
             public static void main(String[] args) {
 
-                Scanner sc = new Scanner(System.in);
+                while (start < end) {
+                    if (input.charAt(start) != input.charAt(end)) {
+                        isPalindrome = false;
+                        break;
+                    }
+                    start++;
+                    end--;
+                }
 
-                System.out.print("Enter a string: ");
-                String input = sc.nextLine();
-
-                boolean result = isPalindrome(input, 0, input.length() - 1);
-
-                if (result) {
-                    System.out.println("The given string is a Palindrome");
+                if (isPalindrome) {
+                    System.out.println("The given string    is a Palindrome");
                 } else {
                     System.out.println("The given string is NOT a Palindrome");
                 }
