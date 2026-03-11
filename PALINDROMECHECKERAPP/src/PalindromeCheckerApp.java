@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class PalindromeCheckerApp {
-    static void main() {
 
 
                 Scanner sc = new Scanner(System.in);
@@ -15,7 +14,11 @@ public class PalindromeCheckerApp {
                 int start = 0;
                 int end = input.length() - 1;
 
-                boolean isPalindrome = true;
+                // Recursive call
+                return isPalindrome(str, start + 1, end - 1);
+            }
+
+            public static void main(String[] args) {
 
                 while (start < end) {
                     if (input.charAt(start) != input.charAt(end)) {
