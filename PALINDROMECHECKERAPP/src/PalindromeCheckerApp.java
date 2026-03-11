@@ -1,26 +1,32 @@
 import java.util.Scanner;
+import java.util.Stack;
 public class PalindromeCheckerApp {
     static void main() {
 
         Scanner sc = new Scanner(System.in);
 
+
+
+
                 System.out.print("Enter a string: ");
                 String input = sc.nextLine();
 
-                // Convert string to character array
-                char[] arr = input.toCharArray();
+                Stack<Character> stack = new Stack<>();
 
-                boolean isPalindrome = true;
-
-                // Check characters from both ends
-                for (int i = 0; i < arr.length / 2; i++) {
-                    if (arr[i] != arr[arr.length - 1 - i]) {
-                        isPalindrome = false;
-                        break;
-                    }
+                // Push all characters into the stack
+                for (int i = 0; i < input.length(); i++) {
+                    stack.push(input.charAt(i));
                 }
 
-                if (isPalindrome) {
+                String reversed = "";
+
+                // Pop characters from stack to build reversed string
+                while (!stack.isEmpty()) {
+                    reversed = reversed + stack.pop();
+                }
+
+                // Check palindrome
+                if (input.equals(reversed)) {
                     System.out.println("The given string is a Palindrome");
                 } else {
                     System.out.println("The given string is NOT a Palindrome");
@@ -29,5 +35,3 @@ public class PalindromeCheckerApp {
                 sc.close();
             }
         }
-
-
